@@ -1,0 +1,17 @@
+<div class="container">
+    <link rel="stylesheet" href="/pages/contact/contact.css">
+    <div class="text-center" style="margin-bottom:10px;">
+        <button ng-click="delete()" type="button" class="btn btn-info"><a href="#!/contact_admin" style="text-decoration: none;color:#fff;">管理联系人</a></button>
+    </div>
+    <div class="list">
+        <ul class="list-group" ng-repeat="v in list">
+            <li class="list-group-item disabled">{{v.index}}</li>
+            <li class="list-group-item" ng-repeat="d in v.peoples">{{d.name}}</li>
+        </ul>
+    </div>
+    <ul class="indicators" style="">
+        <li ng-repeat="v in letter" class="letter text-center" style="">
+            <a href="javascript:void(0)">{{v}}</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+    <form style="margin-top:20px;text-align:center;">
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="key">
+        </div>
+        <button ng-click="add();save()" type="submit" class="btn btn-primary">添加事项</button>
+    </form>
+    <hr>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button ng-click="state=0" type="button" class="btn btn-{{state==0 ? 'info':'default'}}">
+                全部
+                <span>[{{list.length}}]</span>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button ng-click="state=1" type="button" class="btn btn-{{state==1 ? 'info':'default'}}">
+                已完成
+                <span>[{{(list|filter:fn1).length}}]</span>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button ng-click="state=2" type="button" class="btn btn-{{state==2 ? 'info':'default'}}">
+                未完成
+                <span>[{{(list|filter:fn2).length}}]</span>
+            </button>
+        </div>
+    </div>
+    <hr>
+    <ul class="list-group">
+        <li ng-repeat="(i,v) in list|filter:fn3 track by $index" class="list-group-item btn-group btn-group-sm">
+            {{v.title}}
+            <span ng-click="remove(i);save()" class="badge" style="background-color:red;"><i class="glyphicon glyphicon-remove"></i></span>
+            <span ng-click="v.isDone=!v.isDone;save()" class="badge"><i class="glyphicon glyphicon-{{v.isDone ? 'ok' : 'edit'}}"></i></span>
+        </li>
+    </ul>
+</div>

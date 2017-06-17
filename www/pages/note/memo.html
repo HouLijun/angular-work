@@ -1,0 +1,24 @@
+<div ng-click="up()" class="panel panel-{{data.theme}}" style="left:{{position.left}}px;top:{{position.top}}px;z-index:{{data.index}}" >
+    <div class="panel-heading" style="cursor: move">
+        <h5 class="panel-title">
+            <input type="text" ng-model="data.title" disabled>
+        </h5>
+        <span ng-click="remove();" class="badge" style="background-color:red;cursor:pointer;">
+            <i class="glyphicon glyphicon-remove"></i>
+        </span>
+    </div>
+    <div class="panel-body">
+        <p class="panel-content">
+            <textarea ng-model="data.content" rows="8"></textarea>
+            <!--<textarea name="textarea" id="textarea" style="overflow-y: hidden; height: 122px;" onpropertychange="this.style.height = this.scrollHeight + 'px';" oninput="this.style.height = this.scrollHeight + 'px';"></textarea>-->
+    </div>
+    <div class="panel-footer" ng-click="prevent($event);">
+        <div class="color">
+            <button ng-click="data.theme='primary'" type="button" class="btn btn-primary"></button>
+            <button ng-click="data.theme='success'" type="button" class="btn btn-success"></button>
+            <button ng-click="data.theme='info'" type="button" class="btn btn-info"></button>
+            <button ng-click="data.theme='warning'" type="button" class="btn btn-warning"></button>
+            <button ng-click="data.theme='danger'" type="button" class="btn btn-danger"></button>
+        </div>
+    </div>
+</div>

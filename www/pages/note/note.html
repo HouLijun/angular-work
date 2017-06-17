@@ -1,0 +1,4 @@
+<link rel="stylesheet" href="/pages/note/note.css">
+<div class="note"  ng-dblclick="add($event)">
+    <memo ng-repeat="(i,v) in list track by $index" data="v" position="v.position" remove="del(i)" z="zIndex"></memo>
+</div>

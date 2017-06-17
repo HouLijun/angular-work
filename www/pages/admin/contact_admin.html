@@ -1,0 +1,28 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>
+                <input type="checkbox" id="checkAll" ng-click="toggleCheck()" ng-model="checkAll">
+                CheckAll
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="v in list" data-id="{{v.id}}">
+            <th scope="row">{{v.id}}</th>
+            <td><input ng-change="updateName(v.id,v.name)" class="form-control" type="text" ng-model="v.name"></td>
+            <td><input ng-change="updatePhone(v.id,v.phone)" class="form-control" type="text" ng-model="v.phone"></td>
+            <td><input type="checkbox" value="" ng-model="v.checked"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <button ng-click="add()" type="button" class="btn btn-info btn-sm" style="margin:0 5px"><span class="glyphicon glyphicon-plus"></span></button>
+        <button ng-click="delete()" type="button" class="btn btn-danger btn-sm" style="margin:0 5px"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+
+</div>
